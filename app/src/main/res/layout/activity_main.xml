@@ -8,7 +8,7 @@
     android:background="#09070F"
     tools:context=".MainActivity">
 
-    <!-- Badge Superior -->
+    <!-- Etiqueta superior da loja -->
     <androidx.cardview.widget.CardView
         android:id="@+id/badgeStore"
         android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
-    <!-- Logo Bicolor VOXTECH -->
+    <!-- Nome principal da marca dividido em duas cores -->
     <LinearLayout
         android:id="@+id/layoutLogo"
         android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Slogan com Linhas Laterais -->
+    <!-- Slogan da loja -->
     <LinearLayout
         android:id="@+id/layoutSlogan"
         android:layout_width="wrap_content"
@@ -101,7 +101,7 @@
             android:background="#7C3AED" />
     </LinearLayout>
 
-    <!-- Cartão Central do Formulário -->
+    <!-- Cartão principal que agrupa os campos de login -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainerLogin"
         android:layout_width="0dp"
@@ -122,6 +122,7 @@
             android:orientation="vertical"
             android:padding="24dp">
 
+            <!-- Título e subtítulo do formulário -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,7 +139,7 @@
                 android:textColor="#9D95AA"
                 android:textSize="13sp" />
 
-            <!-- Label E-mail -->
+            <!-- Título do campo de e-mail -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -149,7 +150,7 @@
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
-            <!-- Campo de E-mail -->
+            <!-- Caixa de digitação do e-mail -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardEmail"
                 android:layout_width="match_parent"
@@ -173,7 +174,7 @@
                     android:textSize="15sp" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Label Senha -->
+            <!-- Título do campo de senha -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -184,7 +185,7 @@
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
-            <!-- Campo de Senha -->
+            <!-- Caixa de digitação da senha -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSenha"
                 android:layout_width="match_parent"
@@ -208,7 +209,7 @@
                     android:textSize="15sp" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Botão Principal de Entrar -->
+            <!-- Botão para validar os dados e entrar -->
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
@@ -221,7 +222,7 @@
                 android:textStyle="bold"
                 app:cornerRadius="12dp" />
 
-            <!-- Divisor OU -->
+            <!-- Linha divisória com texto OU -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -253,7 +254,7 @@
                     android:background="#282133" />
             </LinearLayout>
 
-            <!-- Botão Secundário: Entrar sem Usuário -->
+            <!-- Botão para acessar a loja sem precisar de login -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -278,7 +279,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Rodapé Discreto -->
+    <!-- Texto de rodapé na base da tela -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

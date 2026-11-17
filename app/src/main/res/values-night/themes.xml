@@ -1,7 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.Voxtech" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Cor da Status Bar (topo onde fica a bateria e hora) -->
+        <item name="android:statusBarColor">#09070F</item>
+        <!-- Cor da barra inferior de navegação do Android -->
+        <item name="android:navigationBarColor">#09070F</item>
+        <!-- Garante que os ícones da Status Bar fiquem brancos -->
+        <item name="android:windowLightStatusBar">false</item>
     </style>
+
+    <style name="Theme.Voxtech" parent="Base.Theme.Voxtech" />
 </resources>

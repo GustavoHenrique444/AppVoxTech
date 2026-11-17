@@ -8,19 +8,47 @@
     android:background="#09070F"
     tools:context=".TelaCarrinho">
 
+    <!-- Botão redondo no topo para voltar à loja -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnVoltarCarrinho"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#16121F"
+        app:cardCornerRadius="21dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="←"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Título da tela do carrinho -->
     <TextView
         android:id="@+id/txtTituloCarrinho"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Meu Carrinho"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnVoltarCarrinho"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/btnVoltarCarrinho" />
 
+    <!-- Área de rolagem onde os produtos adicionados são inseridos -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -28,9 +56,9 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomResumo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTituloCarrinho">
+        app:layout_constraintTop_toBottomOf="@+id/btnVoltarCarrinho">
 
-        <!-- Lista vazia que será preenchida pelo Java -->
+        <!-- Container preenchido dinamicamente pelo código Java -->
         <LinearLayout
             android:id="@+id/containerCarrinho"
             android:layout_width="match_parent"
@@ -39,6 +67,7 @@
             android:padding="16dp" />
     </ScrollView>
 
+    <!-- Rodapé fixo com o valor total e o botão de finalizar -->
     <LinearLayout
         android:id="@+id/bottomResumo"
         android:layout_width="0dp"
@@ -51,6 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <!-- Linha com texto e valor total somado -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,6 +109,7 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <!-- Botão que redireciona para o site externo -->
         <Button
             android:id="@+id/btnFinalizarCompra"
             android:layout_width="match_parent"

@@ -8,7 +8,7 @@
     android:background="#09070F"
     tools:context=".TelaProdutos">
 
-    <!-- Barra Superior da Loja -->
+    <!-- Cabeçalho fixo no topo da tela -->
     <LinearLayout
         android:id="@+id/topHeaderProdutos"
         android:layout_width="0dp"
@@ -24,12 +24,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Coluna da esquerda com logo, nome e e-mail do usuário -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <!-- Logo VOXTECH -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,17 +56,54 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- Exibe o primeiro nome do usuário logado -->
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/txtNomeUsuarioHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Hardware selecionado para o seu setup"
-                android:textColor="#9D95AA"
-                android:textSize="12sp" />
+                android:layout_marginTop="4dp"
+                android:text="Olá, Pedro"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- Exibe o e-mail completo do usuário -->
+            <TextView
+                android:id="@+id/txtEmailUsuarioHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="pedro@hotmail.com"
+                android:textColor="#A970FF"
+                android:textSize="11sp" />
         </LinearLayout>
 
-        <!-- Botão Rápido do Carrinho -->
+        <!-- Botão para sair e voltar à tela de login -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnSairLoja"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="#16121F"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="Sair"
+                android:textColor="#9D95AA"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botão de atalho para abrir o carrinho -->
         <androidx.cardview.widget.CardView
             android:id="@+id/btnIrCarrinhoTopo"
             android:layout_width="46dp"
@@ -76,16 +115,15 @@
             app:cardCornerRadius="14dp"
             app:cardElevation="0dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="🛒"
-                android:textSize="18sp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_carrinho_roxo" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-    <!-- Divisor sutil do cabeçalho -->
+    <!-- Linha fina separando o cabeçalho da lista -->
     <View
         android:id="@+id/dividerHeader"
         android:layout_width="match_parent"
@@ -93,6 +131,7 @@
         android:background="#282133"
         app:layout_constraintTop_toBottomOf="@+id/topHeaderProdutos" />
 
+    <!-- Área de rolagem com os banners e produtos -->
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
@@ -109,7 +148,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Banner Hero Destaque -->
+            <!-- Banner promocional no topo do catálogo -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,7 +191,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 1 -->
+            <!-- Cartão do Produto 1 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -222,7 +261,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 2 -->
+            <!-- Cartão do Produto 2 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -292,7 +331,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 3 -->
+            <!-- Cartão do Produto 3 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -362,7 +401,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 4 -->
+            <!-- Cartão do Produto 4 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -432,7 +471,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 5 -->
+            <!-- Cartão do Produto 5 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -502,7 +541,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 6 -->
+            <!-- Cartão do Produto 6 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -572,7 +611,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 7 -->
+            <!-- Cartão do Produto 7 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -642,7 +681,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 8 -->
+            <!-- Cartão do Produto 8 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -712,7 +751,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 9 -->
+            <!-- Cartão do Produto 9 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -782,7 +821,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- PRODUTO 10 -->
+            <!-- Cartão do Produto 10 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
