@@ -5,28 +5,33 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".TelaDetalheProduto">
+    android:background="#09070F"
+    tools:context=".TelaDetalheProdutos">
 
     <!-- Imagem Grande do Produto -->
     <ImageView
         android:id="@+id/imgDetalheProduto"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:background="#F0F0F0"
+        android:layout_height="340dp"
+        android:background="#16121F"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <!-- Botão Fictício de Voltar (Efeito Visual) -->
+    <!-- Botão Superior de Voltar -->
     <androidx.cardview.widget.CardView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="20dp"
+        android:id="@+id/btnVoltarDetalhe"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#CC0B0912"
+        app:cardCornerRadius="22dp"
         app:cardElevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,105 +41,241 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="←"
-            android:textColor="#000000"
-            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
-    <!-- Área de Rolagem para os Textos -->
-    <ScrollView
+    <!-- Painel Arredondado Sobreposto à Imagem -->
+    <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="-28dp"
+        android:layout_marginBottom="-16dp"
+        app:cardBackgroundColor="#09070F"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="8dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgDetalheProduto">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
-            <!-- Nome do Produto -->
-            <TextView
-                android:id="@+id/txtNomeDetalhe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nome do Produto"
-                android:textColor="#333333"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <!-- Linha com Preço e Avaliação -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:paddingStart="24dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="32dp">
 
-                <TextView
-                    android:id="@+id/txtPrecoDetalhe"
-                    android:layout_width="wrap_content"
+                <!-- Linha de Badges (Categoria + Avaliação) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="R$ 00,00"
-                    android:textColor="#6200EE"
-                    android:textSize="24sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#1F1633"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.1"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
+                            android:text="VOXTECH OFICIAL"
+                            android:textColor="#A970FF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⭐ 4.9 (128 avaliações)"
+                        android:textColor="#FBBF24"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Nome do Produto -->
+                <TextView
+                    android:id="@+id/txtNomeDetalhe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Nome do Produto"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
                     android:textStyle="bold" />
 
-                <!-- Espaçador invisível para empurrar as estrelas para a direita -->
+                <!-- Preço e Status de Estoque -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtPrecoDetalhe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="R$ 00,00"
+                        android:textColor="#A970FF"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● Em estoque"
+                        android:textColor="#34D399"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Divisor -->
                 <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="#282133" />
 
+                <!-- Título Descrição -->
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="⭐ 4.8"
-                    android:textColor="#FF9800"
-                    android:textSize="16sp"
+                    android:text="Especificações e Detalhes"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
+
+                <!-- Texto da Descrição -->
+                <TextView
+                    android:id="@+id/txtDescricaoDetalhe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="A descrição detalhada do produto aparecerá aqui."
+                    android:textColor="#9D95AA"
+                    android:textSize="15sp" />
+
+                <!-- Cards de Benefícios (Frete e Garantia) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#16121F"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="⚡ Envio Rápido"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Despacho em 24h"
+                                android:textColor="#9D95AA"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#16121F"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🛡️ Garantia Vox"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="12 meses oficial"
+                                android:textColor="#9D95AA"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
             </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
 
-            <!-- Linha Divisória -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="#E0E0E0" />
-
-            <!-- Subtítulo e Descrição -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sobre o produto"
-                android:textColor="#333333"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtDescricaoDetalhe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:lineSpacingExtra="4dp"
-                android:text="A descrição detalhada do produto aparecerá aqui. Ela será alterada dependendo de qual produto você clicar na tela anterior. Adicionamos este espaço com scroll para que você possa colocar descrições longas sem quebrar a tela do aplicativo."
-                android:textColor="#666666"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- Barra Inferior Fixa para o Botão -->
+    <!-- Barra Inferior Fixa -->
     <LinearLayout
         android:id="@+id/bottomBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="#0B0912"
         android:elevation="16dp"
-        android:padding="16dp"
+        android:paddingStart="20dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -143,9 +284,12 @@
             android:id="@+id/btnAdicionarCarrinho"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:backgroundTint="#7C3AED"
             android:text="Adicionar ao Carrinho"
-            android:textSize="18sp"
-            app:cornerRadius="8dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:cornerRadius="14dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
